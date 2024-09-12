@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "psa",
-  description: "Created by Danylo Pidhornyi",
+  description: "Created by Danylo Pidhornyi!",
 };
 
 export default function RootLayout({
