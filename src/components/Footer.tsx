@@ -15,59 +15,53 @@ const Footer = () => {
   return (
     <footer
       style={{ borderColor: "#9C1006", color: "#9C1006" }}
-      className="mt-16 pb-14 pt-16 2xl:pl-32 pl-0 border-t flex"
+      className="flex mt-16 pt-16 pb-14 border-t pl-0 2xl:pl-32"
     >
-      <div className="2xl:mr-32 xl:mr-32 mr-8 2xl:block xl:block lg:block hidden">
+      <div className="hidden lg:block mr-8 xl:mr-32 2xl:mr-32">
         <Image src={footerLogo} alt={"footer-logo"} />
       </div>
-      <div className="flex flex-1 2xl:flex-col justify-between 2xl:mr-28 xl:mr-28 mr-8 flex-row-reverse">
-        <div className="flex 2xl:justify-between justify-start gap-2 2xl:flex-row flex-col">
-          <p className="flex gap-4 items-center">
+
+      <div className="flex flex-col flex-1 justify-between mr-8 md:gap-7 sm:gap-5 lg:gap-0 xl:gap-0 2xl:gap-0 xl:mr-28 2xl:mr-28">
+        <div className="flex flex-col sm:flex-col sm:items-start md:flex-row lg:flex-row xl:flex-row 2xl:flex-row justify-between gap-2">
+          <p className="flex items-center gap-4">
             <Image src={footerGPS} alt={"footer-location"} />
-            <span>
-              {" "}
-              viale Pavia 26 • Lodi, IT, 26900
-            </span>
+            <span>viale Pavia 26 • Lodi, IT, 26900</span>
           </p>
-          <p className="flex gap-4 items-center">
+
+          <p className="flex items-center gap-4">
             <Image src={footerPhone} alt={"footer-phone"} />
-            <Link href={""}>
-              (+39) 0371 36011
-            </Link>
+            <Link href={""}>(+39) 0371 36011</Link>
           </p>
-          <p className="flex gap-2 items-center">
+
+          <p className="flex items-center gap-2">
             <span>Social Media</span>
             <Link href={""}>
-              <Image src={footerFb} alt={"footer-facebook-link"}></Image>
+              <Image src={footerFb} alt={"footer-facebook-link"} />
             </Link>
             <Link href={""}>
-              <Image src={footerInst} alt={"footer-instagram-link"}></Image>
+              <Image src={footerInst} alt={"footer-instagram-link"} />
             </Link>
             <Link href={""}>
-              <Image src={footerTwitter} alt={"footer-twitter-x-link"}></Image>
+              <Image src={footerTwitter} alt={"footer-twitter-x-link"} />
             </Link>
           </p>
         </div>
-        <hr style={{ borderColor: "#9C1006" }} className="mt-10 mb-10 2xl:block xl:block hidden" />
-        <div className="flex 2xl:flex-row 2xl:gap-7 xl:gap-2 flex-col">
-          <Link href={""}>
-            ABOUT US
-          </Link>
-          <Link href={""}>
-            CONTACT
-          </Link>
-          <Link href={""}>
-            HELP
-          </Link>
-          <Link href={""}>
-            PRIVACY POLICY
-          </Link>
-          <p className="text-sm">
-            Copyright © 2022 • Project Space Archinti
-          </p>
+
+        <hr
+          style={{ borderColor: "#9C1006" }}
+          className="hidden lg:block xl:block 2xl:block mt-10 mb-10"
+        />
+
+        <div className="flex flex-col sm:flex-col sm:items-end md:flex-row lg:flex-row xl:flex-row 2xl:flex-row justify-between gap-2">
+          <Link href={""}>ABOUT US</Link>
+          <Link href={""}>CONTACT</Link>
+          <Link href={""}>HELP</Link>
+          <Link href={""}>PRIVACY POLICY</Link>
+          <p className="text-sm">Copyright © 2022 • Project Space Archinti</p>
         </div>
       </div>
-      <div className="pt-10 2xl:block xl:block lg:block hidden">
+
+      <div className="hidden lg:block xl:block 2xl:block pt-10">
         <Image src={footerArrow} alt={"footer-arrow"} />
       </div>
     </footer>

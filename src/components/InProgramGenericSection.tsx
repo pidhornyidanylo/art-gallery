@@ -53,7 +53,7 @@ const InProgramGenericSection: React.FC<InProgramGenericSectionProps> = ({
       } flex-col-reverse`}
     >
       <div
-        className={`2xl:w-[224px] pt-16 flex flex-col max-h-[726px] gap-10 ${
+        className={`2xl:w-[224px] pt-16 flex flex-col items-start max-h-[726px] gap-10 ${
           isReversed ? "2xl:ml-10" : "2xl:mr-10"
         }`}
       >
@@ -61,13 +61,11 @@ const InProgramGenericSection: React.FC<InProgramGenericSectionProps> = ({
         <Image src={dateIcon} alt="date" />
       </div>
 
-      {/* Modify this part to apply responsive width classes */}
       <div className="transition-all flex-1 w-full 2xl:w-[966px] h-[726px] xl:flex flex-col justify-stretch items-stretch">
         <div className="cover-container">
-          {/* Use w-full to ensure full width on smaller screens */}
           <Image src={cover} alt="cover1" className="2xl:w-[966px] xl:w-full w-full" />
         </div>
-        <div className="bg-black w-full h-[240px] rounded-bl-[13px] rounded-br-[13px] cursor-pointer p-6 flex justify-between">
+        <div className="bg-black w-full min-h-[240px] rounded-bl-[13px] rounded-br-[13px] cursor-pointer p-6 flex justify-between">
           <div>
             <h4 className="text-5xl uppercase" style={{ color: colorScheme }}>
               {eventType}
