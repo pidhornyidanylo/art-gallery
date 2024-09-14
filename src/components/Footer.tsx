@@ -11,7 +11,7 @@ import {
   footerTwitter,
 } from "../app/icons.index";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer
       style={{ borderColor: "#9C1006", color: "#9C1006" }}
@@ -21,8 +21,8 @@ const Footer = () => {
         <Image src={footerLogo} alt={"footer-logo"} />
       </div>
 
-      <div className="flex flex-col flex-1 justify-between mr-8 md:gap-7 sm:gap-5 lg:gap-0 xl:gap-0 2xl:gap-0 xl:mr-28 2xl:mr-28">
-        <div className="flex flex-col sm:flex-col sm:items-start md:flex-row lg:flex-row xl:flex-row 2xl:flex-row justify-between gap-2">
+      <div className="flex flex-col-reverse flex-1 justify-between mr-8 md:gap-7 sm:gap-5 lg:gap-0 xl:gap-0 2xl:gap-0 xl:mr-28 2xl:mr-28">
+        <div className="flex flex-col sm:flex-col sm:items-center md:flex-row lg:flex-row xl:flex-row 2xl:flex-row justify-between gap-2">
           <p className="flex items-center gap-4">
             <Image src={footerGPS} alt={"footer-location"} />
             <span>viale Pavia 26 • Lodi, IT, 26900</span>
@@ -33,7 +33,7 @@ const Footer = () => {
             <Link href={""}>(+39) 0371 36011</Link>
           </p>
 
-          <p className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <span>Social Media</span>
             <Link href={""}>
               <Image src={footerFb} alt={"footer-facebook-link"} />
@@ -44,7 +44,7 @@ const Footer = () => {
             <Link href={""}>
               <Image src={footerTwitter} alt={"footer-twitter-x-link"} />
             </Link>
-          </p>
+          </div>
         </div>
 
         <hr
@@ -52,7 +52,7 @@ const Footer = () => {
           className="hidden lg:block xl:block 2xl:block mt-10 mb-10"
         />
 
-        <div className="flex flex-col sm:flex-col sm:items-end md:flex-row lg:flex-row xl:flex-row 2xl:flex-row justify-between gap-2">
+        <div className="flex flex-col sm:flex-col sm:items-center md:flex-row lg:flex-row xl:flex-row 2xl:flex-row justify-between gap-2">
           <Link href={""}>ABOUT US</Link>
           <Link href={""}>CONTACT</Link>
           <Link href={""}>HELP</Link>
