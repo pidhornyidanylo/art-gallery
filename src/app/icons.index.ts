@@ -3,6 +3,7 @@ import VectorRed from "../../pubic/icons/VectorRed.svg";
 import VectorViolett from "../../pubic/icons/VectorViolett.png";
 import footerLogo from "../../pubic/icons/footerLogo.svg";
 import footerArrow from "../../pubic/icons/arrow-footer.svg";
+import arrowBooking from "../../pubic/icons/arrowBooking.svg";
 import footerGPS from "../../pubic/icons/gps.svg";
 import footerPhone from "../../pubic/icons/phone.svg";
 import footerFb from "../../pubic/icons/fb.svg";
@@ -20,4 +21,5 @@ export {
   footerFb,
   footerTwitter,
   footerInst,
+  arrowBooking
 };

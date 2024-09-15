@@ -12,8 +12,8 @@ const LinkItem: React.FC<LinkItemProps> = (props: LinkItemProps) => {
   const pathname = usePathname();
   const isActualPathname = pathname === props.href
   return (
-    <li>
-      <Link className="text text-2xl" style={{ color: isActualPathname ? "#9C1006" : "black" }} href={props.href}>
+    <li className="cursor-pointer">
+      <Link className="2xl:text-2xl xl:text-2xl lg:text-2xl md:text-2xl text-md" style={{ color: isActualPathname ? "#9C1006" : "black" }} href={props.href}>
         {props.title}
       </Link>
     </li>

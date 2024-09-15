@@ -26,7 +26,7 @@ const Header = () => {
       <Link href="/">
         <Image src={logo} alt="logo" />
       </Link>
-      <nav className="flex flex-1 justify-end">
+      <nav className="flex flex-1 justify-end items-center">
         <ul className="items-center hidden 2xl:flex xl:flex lg:gap-[110px] lg:flex md:flex md:gap-12">
           {linksArray.map((linkItem) => (
             <LinkItem
@@ -36,7 +36,7 @@ const Header = () => {
             />
           ))}
         </ul>
-        <Burger />
+        <Burger linksArray={linksArray} />
       </nav>
     </header>
   );

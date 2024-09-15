@@ -26,7 +26,7 @@ const EventGenericSection: React.FC<EventGenericSectionProps> = ({
   dateIcon,
 }) => {
   const isReversed = type === "reversed";
-  const subTitleClasses = subTitle.length > 25 ? "text-2xl" : "text-5xl";
+  const subTitleClasses = subTitle.length > 25 ? "text-2xl" : "2xl:text-5xl xl:text-5xl lg:text-5xl md:text-4xl text-4xl";
 
   const splitSubtitle = () => {
     const words = subTitle.split(" ");
@@ -69,18 +69,18 @@ const EventGenericSection: React.FC<EventGenericSectionProps> = ({
             className="w-full 2xl:w-[966px]"
           />
         </div>
-        <div className="bg-black w-full min-h-[240px] rounded-bl-[13px] rounded-br-[13px] cursor-pointer p-6 flex justify-between">
-          <div>
-            <h4 className="text-5xl uppercase" style={{ color: colorScheme }}>
+        <div className="bg-black w-full 2xl:min-h-[240px] xl:min-h-[240px] lg:min-h-[240px] min-h-[140px] rounded-bl-[13px] rounded-br-[13px] cursor-pointer p-6 flex justify-between">
+          <div className="flex flex-col justify-end lg:block xl:block 2xl:block">
+            <h4 className="2xl:text-5xl xl:text-5xl lg:text-5xl md:text-4xl text-4xl uppercase" style={{ color: colorScheme }}>
               {eventType}
             </h4>
-            <h3 className="text-5xl text-white pt-6">{author}</h3>
-            <p className={`text-white font-light pt-4 ${subTitleClasses}`}>
+            <h3 className="2xl:text-5xl xl:text-5xl lg:text-5xl md:text-4xl text-4xl text-white pt-0 lg:pt-6 xl:pt-6 2xl:pt-6">{author}</h3>
+            <p className={`text-white font-light pt-0 lg:pt-4 xl:pt-4 2xl:pt-4 ${subTitleClasses}`}>
               {subTitle.length > 25 ? splitSubtitle() : subTitle}
             </p>
           </div>
-          <div className="pr-16 pt-6">
-            <Image width={150} height={150} src={arrow} alt="vector-arrow" />
+          <div className="pr-16 pt-6 hidden md:block lg:block xl:block 2xl:block">
+            <Image width={150} height={150} src={arrow} alt="vector-arrow" className="" />
           </div>
         </div>
       </div>
