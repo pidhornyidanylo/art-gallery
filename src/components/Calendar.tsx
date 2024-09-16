@@ -1,23 +1,25 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import {
   eachDayOfInterval,
   endOfMonth,
   format,
   getDay,
   getMonth,
+  intervalToDuration,
+  isEqual,
   startOfMonth,
 } from 'date-fns';
 import clsx from 'clsx';
 
 const eventInfo = {
   start: {
-    day: 30,
+    day: 2,
     month: 9,
     year: 2024,
   },
   end: {
-    day: 10,
+    day: 5,
     month: 10,
     year: 2024,
   },
@@ -46,15 +48,12 @@ const Calendar = () => {
     eventInfo.start.month - 1,
     eventInfo.start.day
   );
-
   const endDate = new Date(
     eventInfo.end.year,
     eventInfo.end.month - 1,
     eventInfo.end.day
   );
 
-  //   const currentDate = new Date();
-  //   console.log(currentDate);
   const firstDayOfMonth = startOfMonth(startDate);
   const lastDayOfMonth = endOfMonth(startDate);
 
@@ -62,18 +61,71 @@ const Calendar = () => {
     start: firstDayOfMonth,
     end: lastDayOfMonth,
   });
-
   const startingDayIndex = getDay(firstDayOfMonth);
+  const endingDayIndex = getDay(lastDayOfMonth);
+
+  const eventDuration = intervalToDuration({
+    start: new Date(
+      eventInfo.start.year,
+      eventInfo.start.month,
+      eventInfo.start.day
+    ),
+    end: new Date(eventInfo.end.year, eventInfo.end.month, eventInfo.end.day),
+  });
+
+  const startingMonthDates: Date[] = [];
+  const endingMonthDates: Date[] = [];
+
+  const properTitle = () => {
+    if (eventInfo.start.month !== eventInfo.end.month) {
+      return (
+        <h3 className="text-customRed mb-9 text-center text-4xl">
+          {months[getMonth(startDate)] + ' | ' + months[getMonth(endDate)]}
+        </h3>
+      );
+    } else {
+      return (
+        <h3 className="text-customRed mb-9 text-center text-4xl">
+          {months[getMonth(startDate)]}
+        </h3>
+      );
+    }
+  };
+
+  console.log(eventDuration);
+
+  const groupEventDatesByMonths = () => {
+    let count = 1;
+
+    for (let i = 0; i <= (eventDuration.days as number); i++) {
+      if (eventInfo.start.day + i <= daysInMonth.length) {
+        startingMonthDates.push(
+          new Date(
+            eventInfo.start.year,
+            eventInfo.start.month - 1,
+            eventInfo.start.day + i
+          )
+        );
+      } else if (eventInfo.start.day + i > daysInMonth.length) {
+        endingMonthDates.push(
+          new Date(eventInfo.end.year, eventInfo.end.month, count)
+        );
+        count++;
+      }
+    }
+  };
+  groupEventDatesByMonths();
 
   return (
     <div className="container mx-auto p-2">
-      <div>
-        <h3 className="text-center">{months[getMonth(startDate)]}</h3>
-      </div>
-      <div className="grid grid-cols-7 gap-2">
+      <div>{properTitle()}</div>
+      <div className="grid grid-cols-7 gap-6">
         {daysOfWeek.map((day) => {
           return (
-            <div className="text-center font-bold" key={day}>
+            <div
+              className="text-customRed text-center text-2xl font-light"
+              key={day}
+            >
               {day}
             </div>
           );
@@ -84,17 +136,45 @@ const Calendar = () => {
         {daysInMonth.map((day, index) => {
           return (
             <div
-              className={clsx(
-                'rounded-md border border-black p-2 text-center',
-                {
-                  'bg-gray-700': eventInfo.start.day === +format(day, 'd'),
-                  'font-bold text-white':
-                    eventInfo.start.day === +format(day, 'd'),
-                }
-              )}
+              className={clsx('p-2 text-center text-4xl', {
+                'font-bold text-black': startingMonthDates.find((date) =>
+                  isEqual(date, day)
+                ),
+                'text-stroke text-white': !startingMonthDates.find((date) =>
+                  isEqual(date, day)
+                ),
+              })}
               key={index}
             >
               {format(day, 'd')}
+            </div>
+          );
+        })}
+        {Array.from({ length: 7 - endingDayIndex - 1 }).map((_, index) => {
+          return (
+            <div
+              key={`empty-${index}`}
+              className={clsx('p-2 text-center text-4xl', {
+                'font-bold text-black': endingMonthDates.find((date) =>
+                  isEqual(
+                    date,
+                    new Date(eventInfo.end.year, eventInfo.end.month, index + 1)
+                  )
+                ),
+                'text-stroke-opacity-5 text-white': !endingMonthDates.find(
+                  (date) =>
+                    isEqual(
+                      date,
+                      new Date(
+                        eventInfo.end.year,
+                        eventInfo.end.month,
+                        index + 1
+                      )
+                    )
+                ),
+              })}
+            >
+              {index + 1}
             </div>
           );
         })}
