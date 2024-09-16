@@ -6,21 +6,19 @@ import {
   format,
   getDay,
   getMonth,
-  isEqual,
-  isSameMonth,
   startOfMonth,
 } from 'date-fns';
 import clsx from 'clsx';
 
 const eventInfo = {
   start: {
-    day: 28,
-    month: 8,
+    day: 3,
+    month: 10,
     year: 2024,
   },
   end: {
-    day: 10,
-    month: 9,
+    day: 8,
+    month: 10,
     year: 2024,
   },
 };
@@ -55,9 +53,10 @@ const Calendar = () => {
   );
 
   const properTitle =
-    eventInfo.start.month !== eventInfo.end.month
-      ? months[getMonth(startDate)] + ' | ' + months[getMonth(endDate)]
-      : months[getMonth(startDate)];
+    months[getMonth(startDate)] +
+    (getMonth(startDate) !== getMonth(endDate)
+      ? ' | ' + months[getMonth(endDate)]
+      : '');
 
   const firstDayOfMonth = startOfMonth(startDate);
   const lastDayOfMonth = endOfMonth(startDate);
@@ -66,53 +65,70 @@ const Calendar = () => {
     start: firstDayOfMonth,
     end: lastDayOfMonth,
   });
+
   const startingDayIndex = getDay(firstDayOfMonth);
   const endingDayIndex = getDay(lastDayOfMonth);
 
-  const eventDuration = eachDayOfInterval({
-    start: new Date(
-      eventInfo.start.year,
-      eventInfo.start.month - 1,
-      eventInfo.start.day
-    ),
-    end: new Date(
-      eventInfo.end.year,
-      eventInfo.end.month - 1,
-      eventInfo.end.day
-    ),
-  });
+  const eventDurationSet = new Set(
+    eachDayOfInterval({
+      start: startDate,
+      end: endDate,
+    }).map((date) => date.getTime())
+  );
+
+  console.log(eventDurationSet);
+
+  const renderNextMonthDays = () => {
+    return Array.from({ length: 7 - endingDayIndex - 1 }).map((_, index) => {
+      const nextMonthDay = new Date(
+        eventInfo.end.year,
+        eventInfo.end.month - 1,
+        index + 1
+      );
+      const isEventDay = eventDurationSet.has(nextMonthDay.getTime());
+
+      return (
+        <div
+          key={`next-month-${index}`}
+          className={clsx('p-2 text-center text-4xl', {
+            'font-bold text-black': isEventDay,
+            'text-stroke text-white': !isEventDay,
+          })}
+        >
+          {index + 1}
+        </div>
+      );
+    });
+  };
 
   return (
-    <div className="container mx-auto p-2">
+    <div className="2xl:w-[1180px] w-full mx-auto p-2">
       <div>
         <h3 className="text-customRed mb-9 text-center text-4xl">
           {properTitle}
         </h3>
       </div>
       <div className="grid grid-cols-7 gap-6">
-        {daysOfWeek.map((day) => {
-          return (
-            <div
-              className="text-customRed text-center text-2xl font-light"
-              key={day}
-            >
-              {day}
-            </div>
-          );
-        })}
-        {Array.from({ length: startingDayIndex }).map((_, index) => {
-          return <div key={`empty-${index}`}></div>;
-        })}
+        {daysOfWeek.map((day) => (
+          <div
+            className="text-customRed text-center text-2xl font-light"
+            key={day}
+          >
+            {day}
+          </div>
+        ))}
+
+        {Array.from({ length: startingDayIndex }).map((_, index) => (
+          <div key={`empty-${index}`}></div>
+        ))}
+
         {daysInMonth.map((day, index) => {
+          const isEventDay = eventDurationSet.has(day.getTime());
           return (
             <div
               className={clsx('p-2 text-center text-4xl', {
-                'font-bold text-black': eventDuration.find((date) =>
-                  isEqual(date, day)
-                ),
-                'text-stroke text-white': !eventDuration.find((date) =>
-                  isEqual(date, day)
-                ),
+                'font-bold text-black': isEventDay,
+                'text-stroke text-white': !isEventDay,
               })}
               key={index}
             >
@@ -120,39 +136,8 @@ const Calendar = () => {
             </div>
           );
         })}
-        {eventInfo.start.month !== eventInfo.end.month &&
-          Array.from({ length: 7 - endingDayIndex - 1 }).map((_, index) => {
-            return (
-              <div
-                key={`empty-${index}`}
-                className={clsx('p-2 text-center text-4xl', {
-                  'font-bold text-black': eventDuration.find((date) =>
-                    isEqual(
-                      date,
-                      new Date(
-                        eventInfo.end.year,
-                        eventInfo.end.month - 1,
-                        index + 1
-                      )
-                    )
-                  ),
-                  'text-stroke-opacity-5 text-white': !eventDuration.find(
-                    (date) =>
-                      isEqual(
-                        date,
-                        new Date(
-                          eventInfo.end.year,
-                          eventInfo.end.month - 1,
-                          index + 1
-                        )
-                      )
-                  ),
-                })}
-              >
-                {index + 1}
-              </div>
-            );
-          })}
+
+        {eventInfo.start.month !== eventInfo.end.month && renderNextMonthDays()}
       </div>
     </div>
   );

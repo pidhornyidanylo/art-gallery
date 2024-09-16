@@ -4,7 +4,7 @@ import React from 'react';
 
 const VisitPage: React.FC = () => {
   return (
-    <section className="flex justify-center">
+    <section className="flex justify-center flex-col items-center gap-10">
       <Calendar />
       <VisitForm />
     </section>
