@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 p {
-    font-family: "Benne";
+  font-family: 'Benne';
+  font-size: 1.1em;
 }
 
 a {
-    cursor: pointer;
+  cursor: pointer;
 }

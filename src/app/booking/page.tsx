@@ -1,49 +1,48 @@
-import React from "react";
-import Image from "next/image";
-import { coverXl, dateXl } from "../images.index";
-import { arrowBooking } from "../icons.index";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { coverXl, dateXl } from '../images.index';
+import { arrowBooking } from '../icons.index';
 
-const BookingPage = () => {
+const BookingPage: React.FC = () => {
   return (
-    <section className="flex gap-9 relative transition-all min-h-[1150px]">
+    <section className="relative flex min-h-[1150px] gap-9 transition-all">
       <div className="flex flex-col gap-12">
         <div className="relative">
           <Image
             className="w-full 2xl:w-[1182px]"
             src={coverXl}
-            alt={"cover-xl"}
+            alt={'cover-xl'}
             width={1182}
             height={862}
           />
-          <div className="absolute bottom-20 left-10 2xl:block hidden">
-            <Image src={arrowBooking} alt={"white-arrow"} width={216} height={161} />
+          <div className="absolute bottom-20 left-10 hidden 2xl:block">
+            <Image
+              src={arrowBooking}
+              alt={'white-arrow'}
+              width={216}
+              height={161}
+            />
           </div>
-          <div
-            className="absolute bottom-5 left-5 md:left-12 sm:left-5 lg:left-20 xl:left-20 bg-white pt-3 pb-3 pl-6 pr-6 2xl:text-3xl 2xl:right-20 2xl:left-auto 2xl:bottom-20 xl:bottom-20 xl:text-3xl lg:bottom-20 lg:text-3xl md:text-xl md:bottom-12"
-          >
+          <div className="absolute bottom-5 left-5 bg-white pb-3 pl-6 pr-6 pt-3 sm:left-5 md:bottom-12 md:left-12 md:text-xl lg:bottom-20 lg:left-20 lg:text-3xl xl:bottom-20 xl:left-20 xl:text-3xl 2xl:bottom-20 2xl:left-auto 2xl:right-20 2xl:text-3xl">
             <p className="m-2 ml-0">
-              Orari <br />{" "}
+              Orari <br />{' '}
               <span className="font-light">
                 Lun - Dom 9:00/13:00 | 15:00/20:00
               </span>
             </p>
             <p className="m-2 ml-0">
-              Indirizzo <br />{" "}
+              Indirizzo <br />{' '}
               <span className="font-light">
                 viale Pavia, 26 - Lodi IT 26900
               </span>
             </p>
             <hr />
-            <button style={{ color: "#9C1006" }} className="mt-4 ">
-              ENRATA GRATUITA
-            </button>
+            <button className="text-customRed mt-4">ENRATA GRATUITA</button>
           </div>
         </div>
-        <div className="flex 2xl:w-[1182px] justify-between 2xl:flex-row flex-col">
-          <p
-            style={{ color: "#9C1006" }}
-            className="text-justify 2xl:max-w-[790px]"
-          >
+        <div className="flex flex-col justify-between 2xl:w-[1182px] 2xl:flex-row">
+          <p className="text-customRed text-justify 2xl:max-w-[790px]">
             “Dare forma alla reclusione” <br /> Ci chiediamo dov’eravamo finiti
             in quegl’anni incontabili: a stingerci in stanze oblique, non più in
             grado di contenerci, sempre più inclini a farci scivolare; a cercare
@@ -72,30 +71,29 @@ const BookingPage = () => {
             stanza diventava un esterno aperto, ogni spazio esterno diventava
             una stanza chiusa.
           </p>
-          <div className="2xl:w-[324px] xl:w-[324px] lg:w-[324px] w-[240px] flex flex-col gap-24 2xl:p-6 xl:p-6 lg:p-6 p-0 pt-6 pr-0">
-            <Image src={dateXl} alt={"date-xl"} width={324} height={253} />
-            <button className="border p-4 border-black 2xl:text-2xl xl:text-2xl lg:text-2xl text-lg">
-              PRENOTA LA VISITA
+          <div className="flex w-[240px] flex-col gap-24 p-0 pr-0 pt-6 lg:w-[324px] lg:p-6 xl:w-[324px] xl:p-6 2xl:w-[324px] 2xl:p-6">
+            <Image src={dateXl} alt={'date-xl'} width={324} height={253} />
+            <button className="border border-black p-4 text-lg shadow-md hover:shadow-none lg:text-2xl xl:text-2xl 2xl:text-2xl">
+              <Link href={`/booking/${'nicogalmozzi'}`}>PRENOTA LA VISITA</Link>
             </button>
           </div>
         </div>
       </div>
-      <div className="hidden sm:flex md:flex lg:flex xl:flex 2xl:flex transition-all p-4 bg-slate-50 justify-center absolute top-8 right-11 w-[160px] flex-row-reverse 2xl:relative 2xl:justify-end 2xl:bg-transparent 2xl:right-0 2xl:top-0 2xl:p-0">
+      <div className="absolute right-11 top-8 hidden w-[160px] flex-row-reverse justify-center bg-slate-50 p-4 transition-all sm:flex md:flex lg:flex xl:flex 2xl:relative 2xl:right-0 2xl:top-0 2xl:flex 2xl:justify-end 2xl:bg-transparent 2xl:p-0">
         <h3
-          className="transition-all 2xl:text-7xl xl:text-7xl lg:text-6xl text-4xl"
+          className="text-customRed text-4xl transition-all lg:text-6xl xl:text-7xl 2xl:text-7xl"
           style={{
             lineHeight: 0.6,
-            writingMode: "vertical-lr",
-            color: "#9C1006",
-            transform: "translateX(8px)",
+            writingMode: 'vertical-lr',
+            transform: 'translateX(8px)',
           }}
         >
           Nico Galmozzi
         </h3>
         <p
-          className="transition-all font-light 2xl:text-7xl xl:text-7xl lg:text-6xl text-4xl"
+          className="text-4xl font-light transition-all lg:text-6xl xl:text-7xl 2xl:text-7xl"
           style={{
-            writingMode: "vertical-rl",
+            writingMode: 'vertical-rl',
           }}
         >
           Lockdown Portraits

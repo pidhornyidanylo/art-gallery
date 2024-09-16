@@ -67,39 +67,6 @@
 }.__className_36bd41 {font-family: '__Inter_36bd41', '__Inter_Fallback_36bd41';font-style: normal
 }
 
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[13].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src\\app\\layout.tsx","import":"Benne","arguments":[{"subsets":["latin"],"weight":"400"}],"variableName":"benne"} ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/* kannada */
-@font-face {
-  font-family: '__Benne_ab8e27';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/a81e1917b4bb6399-s.woff2) format('woff2');
-  unicode-range: U+0951-0952, U+0964-0965, U+0C80-0CF3, U+1CD0, U+1CD2, U+1CDA, U+1CF2, U+1CF4, U+200C-200D, U+20B9, U+25CC, U+A830-A835;
-}
-/* latin-ext */
-@font-face {
-  font-family: '__Benne_ab8e27';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/6b4c5487d23da162-s.woff2) format('woff2');
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: '__Benne_ab8e27';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/_next/static/media/454abc9592522153-s.p.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}@font-face {font-family: '__Benne_Fallback_ab8e27';src: local("Times New Roman");ascent-override: 65.79%;descent-override: 38.64%;line-gap-override: 0.00%;size-adjust: 95.75%
-}.__className_ab8e27 {font-family: '__Benne_ab8e27', '__Benne_Fallback_ab8e27';font-weight: 400;font-style: normal
-}
-
 /*!*****************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./src/app/globals.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************/
@@ -599,6 +566,39 @@ video {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+
+  .container {
+    max-width: 1536px;
+  }
+}
 .absolute {
   position: absolute;
 }
@@ -632,6 +632,10 @@ video {
 .m-2 {
   margin: 0.5rem;
 }
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -640,6 +644,12 @@ video {
 }
 .ml-0 {
   margin-left: 0px;
+}
+.ml-10 {
+  margin-left: 2.5rem;
+}
+.mr-10 {
+  margin-right: 2.5rem;
 }
 .mr-8 {
   margin-right: 2rem;
@@ -658,6 +668,9 @@ video {
 }
 .flex {
   display: flex;
+}
+.grid {
+  display: grid;
 }
 .hidden {
   display: none;
@@ -692,17 +705,11 @@ video {
 .w-\[160px\] {
   width: 160px;
 }
-.w-\[324px\] {
-  width: 324px;
+.w-\[240px\] {
+  width: 240px;
 }
 .w-full {
   width: 100%;
-}
-.w-\[24px\] {
-  width: 24px;
-}
-.w-\[240px\] {
-  width: 240px;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -739,6 +746,9 @@ video {
 }
 .resize {
   resize: both;
+}
+.grid-cols-7 {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -816,9 +826,17 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
+.border-customRed {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 16 6 / var(--tw-border-opacity));
+}
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 .bg-slate-50 {
   --tw-bg-opacity: 1;
@@ -832,6 +850,9 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.p-0 {
+  padding: 0px;
+}
 .p-2 {
   padding: 0.5rem;
 }
@@ -840,9 +861,6 @@ video {
 }
 .p-6 {
   padding: 1.5rem;
-}
-.p-0 {
-  padding: 0px;
 }
 .pb-14 {
   padding-bottom: 3.5rem;
@@ -858,6 +876,9 @@ video {
 }
 .pl-2 {
   padding-left: 0.5rem;
+}
+.pl-32 {
+  padding-left: 8rem;
 }
 .pl-6 {
   padding-left: 1.5rem;
@@ -889,8 +910,8 @@ video {
 .pt-7 {
   padding-top: 1.75rem;
 }
-.pt-2 {
-  padding-top: 0.5rem;
+.text-center {
+  text-align: center;
 }
 .text-justify {
   text-align: justify;
@@ -903,21 +924,24 @@ video {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
 .text-6xl {
   font-size: 3.75rem;
   line-height: 1;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+.font-bold {
+  font-weight: 700;
 }
 .font-light {
   font-weight: 300;
@@ -925,9 +949,37 @@ video {
 .uppercase {
   text-transform: uppercase;
 }
+.leading-3 {
+  line-height: .75rem;
+}
+.leading-4 {
+  line-height: 1rem;
+}
+.leading-6 {
+  line-height: 1.5rem;
+}
+.leading-8 {
+  line-height: 2rem;
+}
+.leading-9 {
+  line-height: 2.25rem;
+}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-customRed {
+  --tw-text-opacity: 1;
+  color: rgb(156 16 6 / var(--tw-text-opacity));
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .transition-all {
   transition-property: all;
@@ -936,11 +988,18 @@ video {
 }
 
 p {
-    font-family: "Benne";
+  font-family: 'Benne';
+  font-size: 1.1em;
 }
 
 a {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.hover\:shadow-none:hover {
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 @media (min-width: 640px) {
@@ -1244,12 +1303,12 @@ a {
     width: 224px;
   }
 
-  .\32xl\:w-\[966px\] {
-    width: 966px;
-  }
-
   .\32xl\:w-\[324px\] {
     width: 324px;
+  }
+
+  .\32xl\:w-\[966px\] {
+    width: 966px;
   }
 
   .\32xl\:max-w-\[790px\] {
@@ -1320,3 +1379,4 @@ a {
     line-height: 1;
   }
 }
+

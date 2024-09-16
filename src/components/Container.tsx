@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-const Container = ({ children }: { children: React.ReactNode }) => {
+type ContainerProps = {
+  children: React.ReactNode;
+};
+
+const Container: React.FC<ContainerProps> = ({ children }: ContainerProps) => {
   return (
-    <div className='xl:w-[1350px] w-[100%] h-[100vh] flex flex-col'>
+    <div className="flex h-[100vh] w-[100%] flex-col xl:w-[1350px]">
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default Container
+export default Container;

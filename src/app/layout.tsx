@@ -1,16 +1,19 @@
-import type { Metadata } from "next";
-import { Inter, Benne } from "next/font/google";
-import Container from "@/components/Container";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
-import "./globals.css";
+import type { Metadata } from 'next';
+import Favicon from '../../pubic/favicon.ico';
+import { Inter } from 'next/font/google';
+import Container from '@/components/Container';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+import './globals.css';
 
-const inter = Inter({ subsets: ["latin"] });
-const benne = Benne({ subsets: ["latin"], weight: "400" }); 
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "psa",
-  description: "Created by Danylo Pidhornyi!",
+  title: {
+    default: 'Project Space Archinty',
+    template: '%s | PSA',
+  },
+  icons: [{ rel: 'icon', url: Favicon.src }],
 };
 
 export default function RootLayout({
@@ -22,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={
-          `${inter.className}` + " flex justify-center w-[100%] h-[100vh] p-2"
+          `${inter.className}` + ' flex h-[100vh] w-[100%] justify-center p-2'
         }
       >
         <Container>

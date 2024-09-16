@@ -1,7 +1,7 @@
-import React from "react";
-import Image from "next/image";
-import FooterWrapper from "./FooterWrapper";
-import Link from "next/link";
+import React from 'react';
+import Image from 'next/image';
+import FooterWrapper from './FooterWrapper';
+import Link from 'next/link';
 import {
   footerLogo,
   footerArrow,
@@ -10,57 +10,57 @@ import {
   footerFb,
   footerInst,
   footerTwitter,
-} from "../../app/icons.index";
+} from '../../app/icons.index';
 
 const Footer: React.FC = () => {
+  const footerInnerInfoContainerStyles =
+    'flex flex-col items-center justify-between gap-2 sm:flex-col sm:items-center md:flex-row lg:flex-row xl:flex-row 2xl:flex-row';
+
   return (
     <FooterWrapper>
-      <div className="hidden lg:block mr-8 xl:mr-32 2xl:mr-32">
-        <Image src={footerLogo} alt={"footer-logo"} />
+      <div className="mr-8 hidden lg:block xl:mr-32 2xl:mr-32">
+        <Image src={footerLogo} alt={'footer-logo'} />
       </div>
 
-      <div className="flex flex-col-reverse flex-1 justify-between mr-8 md:gap-7 sm:gap-5 lg:gap-0 xl:gap-0 2xl:gap-0 xl:mr-28 2xl:mr-28">
-        <div className="flex flex-col sm:flex-col sm:items-center md:flex-row lg:flex-row xl:flex-row 2xl:flex-row justify-between gap-2">
+      <div className="mr-8 flex flex-1 flex-col justify-between sm:gap-5 md:gap-7 lg:gap-0 xl:mr-28 xl:gap-0 2xl:mr-28 2xl:gap-0">
+        <div className={footerInnerInfoContainerStyles}>
           <p className="flex items-center gap-4">
-            <Image src={footerGPS} alt={"footer-location"} />
+            <Image src={footerGPS} alt={'footer-location'} />
             <span>viale Pavia 26 • Lodi, IT, 26900</span>
           </p>
 
           <p className="flex items-center gap-4">
-            <Image src={footerPhone} alt={"footer-phone"} />
-            <Link href={""}>(+39) 0371 36011</Link>
+            <Image src={footerPhone} alt={'footer-phone'} />
+            <Link href={''}>(+39) 0371 36011</Link>
           </p>
 
           <div className="flex items-center gap-2">
             <span>Social Media</span>
-            <Link href={""}>
-              <Image src={footerFb} alt={"footer-facebook-link"} />
+            <Link href={''}>
+              <Image src={footerFb} alt={'footer-facebook-link'} />
             </Link>
-            <Link href={""}>
-              <Image src={footerInst} alt={"footer-instagram-link"} />
+            <Link href={''}>
+              <Image src={footerInst} alt={'footer-instagram-link'} />
             </Link>
-            <Link href={""}>
-              <Image src={footerTwitter} alt={"footer-twitter-x-link"} />
+            <Link href={''}>
+              <Image src={footerTwitter} alt={'footer-twitter-x-link'} />
             </Link>
           </div>
         </div>
 
-        <hr
-          style={{ borderColor: "#9C1006" }}
-          className="hidden lg:block xl:block 2xl:block mt-10 mb-10"
-        />
+        <hr className="mb-10 mt-10 hidden lg:block xl:block 2xl:block border-customRed" />
 
-        <div className="flex flex-col sm:flex-col sm:items-center md:flex-row lg:flex-row xl:flex-row 2xl:flex-row justify-between gap-2">
-          <Link href={""}>ABOUT US</Link>
-          <Link href={""}>CONTACT</Link>
-          <Link href={""}>HELP</Link>
-          <Link href={""}>PRIVACY POLICY</Link>
+        <div className={footerInnerInfoContainerStyles}>
+          <Link href={''}>ABOUT US</Link>
+          <Link href={''}>CONTACT</Link>
+          <Link href={''}>HELP</Link>
+          <Link href={''}>PRIVACY POLICY</Link>
           <p className="text-sm">Copyright © 2022 • Project Space Archinti</p>
         </div>
       </div>
 
-      <div className="hidden lg:block xl:block 2xl:block pt-10">
-        <Image src={footerArrow} alt={"footer-arrow"} />
+      <div className="hidden pt-10 lg:block xl:block 2xl:block">
+        <Image src={footerArrow} alt={'footer-arrow'} />
       </div>
     </FooterWrapper>
   );

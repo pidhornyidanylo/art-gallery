@@ -1,33 +1,33 @@
-import React from "react";
-import Image from "next/image";
-import { logo } from "@/app/icons.index";
-import Link from "next/link";
-import LinkItem from "./components/LinkItem";
-import Burger from "./components/Burger";
+import React from 'react';
+import Image from 'next/image';
+import { logo } from '@/app/icons.index';
+import Link from 'next/link';
+import LinkItem from './components/LinkItem';
+import Burger from './components/Burger';
 
 const linksArray = [
   {
-    title: "IN PROGRAMMA",
-    href: "/",
+    title: 'IN PROGRAMMA',
+    href: '/',
   },
   {
-    title: "PRENOTA VISITA",
-    href: "/booking",
+    title: 'PRENOTA VISITA',
+    href: '/booking',
   },
   {
-    title: "INFO",
-    href: "/info",
+    title: 'INFO',
+    href: '/info',
   },
 ];
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
-    <header className="flex items-center pl-2 pt-7 pb-5 2xl:pr-40">
+    <header className="flex items-center pb-5 pl-2 pt-7 2xl:pr-40">
       <Link href="/">
         <Image src={logo} alt="logo" />
       </Link>
-      <nav className="flex flex-1 justify-end items-center">
-        <ul className="items-center hidden 2xl:flex xl:flex lg:gap-[110px] lg:flex md:flex md:gap-12">
+      <nav className="flex flex-1 items-center justify-end">
+        <ul className="hidden items-center md:flex md:gap-12 lg:flex lg:gap-[110px] xl:flex 2xl:flex">
           {linksArray.map((linkItem) => (
             <LinkItem
               key={linkItem.href}

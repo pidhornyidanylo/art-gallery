@@ -1,8 +1,8 @@
-import EventGenericSection from "@/components/EventGenericSection";
-import { cover1, cover2, date1, date2 } from "./images.index";
-import { VectorRed, VectorViolett } from "./icons.index";
+import EventGenericSection from '@/components/EventGenericSection';
+import { cover1, cover2, date1, date2 } from './images.index';
+import { VectorRed, VectorViolett } from './icons.index';
 
-export default function InProgram() {
+const InProgram: React.FC = () => {
   return (
     <div className="flex flex-col gap-10">
       <EventGenericSection
@@ -31,4 +31,6 @@ export default function InProgram() {
       />
     </div>
   );
-}
+};
+
+export default InProgram;
