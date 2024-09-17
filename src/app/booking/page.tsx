@@ -24,7 +24,7 @@ const BookingPage: React.FC = () => {
               height={161}
             />
           </div>
-          <div className="absolute bottom-1 left-1 bg-white pb-2 pl-3 pr-3 pt-2 sm:bottom-5 sm:left-5 md:bottom-12 md:left-12 md:text-xl lg:bottom-20 lg:left-20 lg:text-3xl xl:bottom-20 xl:left-20 xl:text-3xl 2xl:bottom-20 2xl:left-auto 2xl:right-20 2xl:text-3xl">
+          <div className="absolute bottom-1 left-1 bg-white pb-2 pl-3 pr-3 pt-2 text-xl sm:bottom-5 sm:left-5 md:bottom-12 md:left-12 lg:bottom-20 lg:left-20 lg:text-3xl xl:bottom-20 xl:left-20 xl:text-3xl 2xl:bottom-20 2xl:left-auto 2xl:right-20 2xl:text-3xl">
             <p className="ml-0">
               Orari <br />{' '}
               <span className="font-light">
@@ -73,7 +73,7 @@ const BookingPage: React.FC = () => {
             stanza diventava un esterno aperto, ogni spazio esterno diventava
             una stanza chiusa.
           </p>
-          <div className="flex w-[240px] flex-col gap-24 p-0 pr-0 pt-6 lg:w-[324px] lg:p-6 xl:w-[324px] xl:p-6 2xl:w-[324px] 2xl:p-6">
+          <div className="flex w-[240px] flex-col 2xl:gap-24 gap-9  p-0 pr-0 pt-6 lg:w-[324px] lg:p-6 xl:w-[324px] xl:p-6 2xl:w-[324px] 2xl:p-6">
             <Image src={dateXl} alt={'date-xl'} width={324} height={253} />
             <button className="border border-black p-4 text-lg shadow-md hover:shadow-none lg:text-2xl xl:text-2xl 2xl:text-2xl">
               <Link href={`/booking/${'nicogalmozzi'}`}>PRENOTA LA VISITA</Link>

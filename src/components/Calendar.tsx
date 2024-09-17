@@ -155,7 +155,7 @@ const Calendar: React.FC = () => {
           Next
         </button>
       </div>
-      <div className="grid grid-cols-7 gap-6">
+      <div className="grid grid-cols-7 gap-3 lg:gap-4 xl:gap-6 2xl:gap-6">
         {daysOfWeek.map((day) => (
           <div
             className="text-center text-2xl font-light text-customRed xl:text-4xl 2xl:text-4xl"
