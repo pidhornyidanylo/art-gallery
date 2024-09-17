@@ -1,0 +1,7 @@
+{
+  "c": ["app/layout", "app/booking/[visit]/page", "webpack"],
+  "r": [],
+  "m": [
+    "(app-pages-browser)/./src/components/Calendar/components/CalendarHeader.tsx"
+  ]
+}

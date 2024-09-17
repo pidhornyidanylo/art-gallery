@@ -24,17 +24,17 @@ const Footer: React.FC = () => {
 
       <div className="mr-0 flex flex-1 flex-col justify-between gap-2 sm:gap-5 md:gap-7 lg:gap-0 xl:mr-28 xl:gap-0 2xl:mr-28 2xl:gap-0">
         <div className={footerInnerInfoContainerStyles}>
-          <p className="items-center gap-4 2xl:flex xl:flex lg:flex md:flex hidden">
+          <p className="hidden items-center gap-4 md:flex lg:flex xl:flex 2xl:flex">
             <Image src={footerGPS} alt={'footer-location'} />
             <span>viale Pavia 26 • Lodi, IT, 26900</span>
           </p>
 
-          <p className="items-center gap-4 2xl:flex xl:flex lg:flex md:flex hidden">
+          <p className="hidden items-center gap-4 md:flex lg:flex xl:flex 2xl:flex">
             <Image src={footerPhone} alt={'footer-phone'} />
             <Link href={''}>(+39) 0371 36011</Link>
           </p>
 
-          <div className="fixed bg-white rounded-lg p-2 bottom-1 right-2 flex items-center gap-2 md:relative md:bottom-0 md:right-0 lg:relative lg:bottom-0 lg:right-0 xl:relative xl:bottom-0 xl:right-0 2xl:relative 2xl:bottom-0 2xl:right-0">
+          <div className="fixed bottom-1 right-2 flex items-center gap-2 rounded-lg bg-white p-2 md:relative md:bottom-0 md:right-0 lg:relative lg:bottom-0 lg:right-0 xl:relative xl:bottom-0 xl:right-0 2xl:relative 2xl:bottom-0 2xl:right-0">
             <span className="hidden md:block lg:block xl:block 2xl:block">
               Social Media
             </span>
@@ -47,16 +47,22 @@ const Footer: React.FC = () => {
             <Link href={''}>
               <Image src={footerTwitter} alt={'footer-twitter-x-link'} />
             </Link>
-            <Link href={''} className=' 2xl:hidden xl:hidden lg:hidden md:hidden block'>
+            <Link
+              href={''}
+              className="block md:hidden lg:hidden xl:hidden 2xl:hidden"
+            >
               <Image src={footerGPS} alt={'footer-gps'} />
             </Link>
-            <Link href={''} className='pt-1 2xl:hidden xl:hidden lg:hidden md:hidden block'>
+            <Link
+              href={''}
+              className="block pt-1 md:hidden lg:hidden xl:hidden 2xl:hidden"
+            >
               <Image src={footerPhone} alt={'footer-phone'} />
             </Link>
           </div>
         </div>
 
-        <hr className="border-customRed mb-10 mt-10 hidden lg:block xl:block 2xl:block" />
+        <hr className="mb-10 mt-10 hidden border-customRed lg:block xl:block 2xl:block" />
 
         <div className={footerInnerInfoContainerStyles}>
           <Link href={''}>ABOUT US</Link>

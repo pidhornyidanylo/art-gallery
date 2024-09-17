@@ -3,7 +3,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
-type EventGenericSectionProps = {
+export type EventGenericSectionProps = {
   type: 'reversed' | 'basic';
   text: string;
   cover: string | StaticImport;
@@ -74,7 +74,7 @@ const EventGenericSection: React.FC<EventGenericSectionProps> = ({
         <div className="cover-container">
           <Image src={cover} alt="cover" className="w-full 2xl:w-[966px]" />
         </div>
-        <div className="flex min-h-[140px] w-full cursor-pointer justify-between rounded-bl-[13px] rounded-br-[13px] bg-black p-6 lg:min-h-[240px] xl:min-h-[240px] 2xl:min-h-[240px]">
+        <div className="flex min-h-[140px] w-full cursor-pointer justify-between rounded-bl-[5px] rounded-br-[5px] bg-black p-6 lg:min-h-[240px] lg:rounded-bl-[13px] lg:rounded-br-[13px] xl:min-h-[240px] xl:rounded-bl-[13px] xl:rounded-br-[13px] 2xl:min-h-[240px] 2xl:rounded-bl-[13px] 2xl:rounded-br-[13px]">
           <div className="flex flex-col justify-end lg:block xl:block 2xl:block">
             <h4
               className="text-4xl uppercase md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-5xl"
@@ -82,7 +82,10 @@ const EventGenericSection: React.FC<EventGenericSectionProps> = ({
             >
               {eventType}
             </h4>
-            <h3 className="pt-0 text-4xl text-white md:text-4xl lg:pt-6 lg:text-5xl xl:pt-6 xl:text-5xl 2xl:pt-6 2xl:text-5xl">
+            <h3
+              data-testid="author-name"
+              className="pt-0 text-4xl text-white md:text-4xl lg:pt-6 lg:text-5xl xl:pt-6 xl:text-5xl 2xl:pt-6 2xl:text-5xl"
+            >
               {author}
             </h3>
             <p
@@ -116,7 +119,7 @@ const EventGenericSection: React.FC<EventGenericSectionProps> = ({
           'flex-row-reverse': !isReversed,
         })}
       >
-        <h3
+        <h2
           className="text-6xl"
           style={{
             writingMode: 'vertical-lr',
@@ -127,7 +130,7 @@ const EventGenericSection: React.FC<EventGenericSectionProps> = ({
           }}
         >
           {author}
-        </h3>
+        </h2>
         <p
           className={clsx('font-light', {
             'text-2xl': subTitle.length > 25,

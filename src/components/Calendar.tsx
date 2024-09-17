@@ -40,7 +40,7 @@ const months = [
 
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-const Calendar = () => {
+const Calendar: React.FC = () => {
   const [currentMonth, setCurrentMonth] = useState(eventInfo.start.month - 1);
   const [currentYear, setCurrentYear] = useState(eventInfo.start.year);
 
@@ -107,7 +107,7 @@ const Calendar = () => {
       return (
         <div
           key={`prev-${index}`}
-          className={clsx('p-2 text-center text-4xl', {
+          className={clsx('p-2 text-center text-2xl xl:text-4xl 2xl:text-4xl', {
             'font-bold text-black': isEventDay,
             'text-white text-stroke': !isEventDay,
           })}
@@ -125,7 +125,7 @@ const Calendar = () => {
       return (
         <div
           key={`next-${index}`}
-          className={clsx('p-2 text-center text-4xl', {
+          className={clsx('p-2 text-center text-2xl xl:text-4xl 2xl:text-4xl', {
             'font-bold text-black': isEventDay,
             'text-white text-stroke': !isEventDay,
           })}
@@ -138,14 +138,14 @@ const Calendar = () => {
 
   return (
     <div className="mx-auto w-full p-2 2xl:w-[1180px]">
-      <div className="mb-9 flex items-center justify-center gap-24">
+      <div className="mb-9 flex items-center justify-between gap-4 md:justify-center md:gap-24 lg:justify-center lg:gap-24 xl:justify-center xl:gap-24 2xl:justify-center 2xl:gap-24">
         <button
           className="rounded-md border border-customRed p-2"
           onClick={handlePrevMonth}
         >
           Prev
         </button>
-        <h3 className="w-[300px] text-center text-4xl text-customRed">
+        <h3 className="w-[200px] text-center text-4xl text-customRed md:w-[300px] lg:w-[300px] xl:w-[300px] 2xl:w-[300px]">
           {properTitle}
         </h3>
         <button
@@ -158,7 +158,7 @@ const Calendar = () => {
       <div className="grid grid-cols-7 gap-6">
         {daysOfWeek.map((day) => (
           <div
-            className="text-center text-2xl font-light text-customRed"
+            className="text-center text-2xl font-light text-customRed xl:text-4xl 2xl:text-4xl"
             key={day}
           >
             {day}
@@ -169,10 +169,13 @@ const Calendar = () => {
           const isEventDay = eventDurationSet.has(day.getTime());
           return (
             <div
-              className={clsx('p-2 text-center text-4xl', {
-                'font-bold text-black': isEventDay,
-                'text-white text-stroke': !isEventDay,
-              })}
+              className={clsx(
+                'p-2 text-center text-2xl xl:text-4xl 2xl:text-4xl',
+                {
+                  'font-bold text-black': isEventDay,
+                  'text-white text-stroke': !isEventDay,
+                }
+              )}
               key={index}
             >
               {format(day, 'd')}

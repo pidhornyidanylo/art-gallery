@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 
-const VisitForm = () => {
+const VisitForm: React.FC = () => {
   return (
-    <form className="flex w-full justify-center gap-4 pl-11 pr-11 2xl:w-[1180px]">
+    <form className="flex w-full flex-col justify-center gap-4 pl-1 pr-1 lg:flex-row xl:flex-row xl:pl-11 xl:pr-11 2xl:w-[1180px] 2xl:flex-row 2xl:pl-11 2xl:pr-11">
       <input
         placeholder="Your e-mail :"
         type="email"

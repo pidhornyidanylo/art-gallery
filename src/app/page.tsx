@@ -4,7 +4,7 @@ import { VectorRed, VectorViolett } from './icons.index';
 
 const InProgram: React.FC = () => {
   return (
-    <div className="flex flex-col gap-10">
+    <div data-testid="sections-container" className="flex flex-col gap-10">
       <EventGenericSection
         arrow={VectorRed}
         colorScheme="#9C1006"

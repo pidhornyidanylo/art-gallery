@@ -24,7 +24,7 @@ const BookingPage: React.FC = () => {
               height={161}
             />
           </div>
-          <div className="absolute bottom-5 left-5 bg-white pb-3 pl-6 pr-6 pt-3 sm:left-5 md:bottom-12 md:left-12 md:text-xl lg:bottom-20 lg:left-20 lg:text-3xl xl:bottom-20 xl:left-20 xl:text-3xl 2xl:bottom-20 2xl:left-auto 2xl:right-20 2xl:text-3xl">
+          <div className="absolute bottom-1 left-1 bg-white pb-2 pl-3 pr-3 pt-2 sm:bottom-5 sm:left-5 md:bottom-12 md:left-12 md:text-xl lg:bottom-20 lg:left-20 lg:text-3xl xl:bottom-20 xl:left-20 xl:text-3xl 2xl:bottom-20 2xl:left-auto 2xl:right-20 2xl:text-3xl">
             <p className="ml-0">
               Orari <br />{' '}
               <span className="font-light">
@@ -38,7 +38,9 @@ const BookingPage: React.FC = () => {
               </span>
             </p>
             <hr />
-            <button className="mt-4 text-customRed">ENRATA GRATUITA</button>
+            <button className="mt-2 text-customRed md:mt-4 lg:mt-4 xl:mt-4 2xl:mt-4">
+              ENRATA GRATUITA
+            </button>
           </div>
         </div>
         <div className="flex flex-col justify-between 2xl:w-[1182px] 2xl:flex-row">
