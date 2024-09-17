@@ -5,7 +5,7 @@ const InfoPage: React.FC = () => {
     'text-justify text-2xl mb-8 leading-8 2xl:text-left 2xl:leading-9';
   return (
     <section
-      className="flex flex-col pt-16"
+      className="flex flex-col"
       style={{ fontFamily: 'Benne', height: '100%' }}
     >
       <div>

@@ -22,7 +22,7 @@ const linksArray = [
 
 const Header: React.FC = () => {
   return (
-    <header className="flex items-center pb-5 pl-2 pt-7 2xl:pr-40">
+    <header className="flex items-center pb-8 pl-2 pt-7 2xl:pr-40">
       <Link href="/">
         <Image src={logo} alt="logo" />
       </Link>
