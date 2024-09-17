@@ -57,14 +57,16 @@ const EventGenericSection: React.FC<EventGenericSectionProps> = ({
     >
       <div
         className={clsx(
-          'flex max-h-[726px] flex-col items-start gap-10 pt-16 2xl:w-[224px]',
+          'flex max-h-[726px] flex-col items-start gap-10 pt-9 2xl:w-[240px]',
           {
             '2xl:ml-10': isReversed,
             '2xl:mr-10': !isReversed,
           }
         )}
       >
-        <p>{splitText()}...</p>
+        <p className="text-justify text-2xl leading-7 2xl:text-left 2xl:text-xl 2xl:leading-6">
+          {splitText()}...
+        </p>
         <Image src={dateIcon} alt="date" />
       </div>
 

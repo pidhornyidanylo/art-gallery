@@ -14,7 +14,7 @@ const FooterWrapper: React.FC<FooterWrapperProps> = ({
   return (
     <footer
       className={clsx(
-        'border-customRed text-customRed relative mt-16 flex border-t pb-14 pl-0 pt-16',
+        'border-customRed text-customRed relative mt-16 flex border-t pl-0 pb-9 pt-4 md:pb-12 md:pt-12 lg:pb-12 lg:pt-12 xl:pb-12 xl:pt-12 2xl:pb-12 2xl:pt-12',
         {
           '2xl:pl-32': pathaname === '/',
         }

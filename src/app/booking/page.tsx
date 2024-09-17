@@ -25,24 +25,24 @@ const BookingPage: React.FC = () => {
             />
           </div>
           <div className="absolute bottom-5 left-5 bg-white pb-3 pl-6 pr-6 pt-3 sm:left-5 md:bottom-12 md:left-12 md:text-xl lg:bottom-20 lg:left-20 lg:text-3xl xl:bottom-20 xl:left-20 xl:text-3xl 2xl:bottom-20 2xl:left-auto 2xl:right-20 2xl:text-3xl">
-            <p className="m-2 ml-0">
+            <p className="ml-0">
               Orari <br />{' '}
               <span className="font-light">
                 Lun - Dom 9:00/13:00 | 15:00/20:00
               </span>
             </p>
-            <p className="m-2 ml-0">
+            <p className="ml-0">
               Indirizzo <br />{' '}
               <span className="font-light">
                 viale Pavia, 26 - Lodi IT 26900
               </span>
             </p>
             <hr />
-            <button className="text-customRed mt-4">ENRATA GRATUITA</button>
+            <button className="mt-4 text-customRed">ENRATA GRATUITA</button>
           </div>
         </div>
         <div className="flex flex-col justify-between 2xl:w-[1182px] 2xl:flex-row">
-          <p className="text-customRed text-justify 2xl:max-w-[790px]">
+          <p className="text-justify text-2xl leading-7 text-customRed 2xl:max-w-[790px] 2xl:text-left 2xl:text-xl 2xl:leading-6">
             “Dare forma alla reclusione” <br /> Ci chiediamo dov’eravamo finiti
             in quegl’anni incontabili: a stingerci in stanze oblique, non più in
             grado di contenerci, sempre più inclini a farci scivolare; a cercare
@@ -81,7 +81,7 @@ const BookingPage: React.FC = () => {
       </div>
       <div className="absolute right-11 top-8 hidden w-[160px] flex-row-reverse justify-center bg-slate-50 p-4 transition-all sm:flex md:flex lg:flex xl:flex 2xl:relative 2xl:right-0 2xl:top-0 2xl:flex 2xl:justify-end 2xl:bg-transparent 2xl:p-0">
         <h3
-          className="text-customRed text-4xl transition-all lg:text-6xl xl:text-7xl 2xl:text-7xl"
+          className="text-4xl text-customRed transition-all lg:text-5xl xl:text-5xl 2xl:text-6xl"
           style={{
             lineHeight: 0.6,
             writingMode: 'vertical-lr',
@@ -91,7 +91,7 @@ const BookingPage: React.FC = () => {
           Nico Galmozzi
         </h3>
         <p
-          className="text-4xl font-light transition-all lg:text-6xl xl:text-7xl 2xl:text-7xl"
+          className="text-4xl font-light transition-all lg:text-5xl xl:text-5xl 2xl:text-6xl"
           style={{
             writingMode: 'vertical-rl',
           }}

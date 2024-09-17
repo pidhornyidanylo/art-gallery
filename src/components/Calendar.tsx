@@ -1,24 +1,24 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   eachDayOfInterval,
   endOfMonth,
   format,
   getDay,
-  getMonth,
+  getDaysInMonth,
   startOfMonth,
 } from 'date-fns';
 import clsx from 'clsx';
 
 const eventInfo = {
   start: {
-    day: 3,
-    month: 10,
+    day: 30,
+    month: 4,
     year: 2024,
   },
   end: {
     day: 8,
-    month: 10,
+    month: 5,
     year: 2024,
   },
 };
@@ -41,6 +41,9 @@ const months = [
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 const Calendar = () => {
+  const [currentMonth, setCurrentMonth] = useState(eventInfo.start.month - 1);
+  const [currentYear, setCurrentYear] = useState(eventInfo.start.year);
+
   const startDate = new Date(
     eventInfo.start.year,
     eventInfo.start.month - 1,
@@ -52,14 +55,17 @@ const Calendar = () => {
     eventInfo.end.day
   );
 
-  const properTitle =
-    months[getMonth(startDate)] +
-    (getMonth(startDate) !== getMonth(endDate)
-      ? ' | ' + months[getMonth(endDate)]
-      : '');
+  const eventDurationSet = new Set(
+    eachDayOfInterval({
+      start: startDate,
+      end: endDate,
+    }).map((date) => date.getTime())
+  );
 
-  const firstDayOfMonth = startOfMonth(startDate);
-  const lastDayOfMonth = endOfMonth(startDate);
+  const properTitle = `${months[currentMonth]} ${currentYear}`;
+
+  const firstDayOfMonth = startOfMonth(new Date(currentYear, currentMonth));
+  const lastDayOfMonth = endOfMonth(new Date(currentYear, currentMonth));
 
   const daysInMonth = eachDayOfInterval({
     start: firstDayOfMonth,
@@ -69,30 +75,59 @@ const Calendar = () => {
   const startingDayIndex = getDay(firstDayOfMonth);
   const endingDayIndex = getDay(lastDayOfMonth);
 
-  const eventDurationSet = new Set(
-    eachDayOfInterval({
-      start: startDate,
-      end: endDate,
-    }).map((date) => date.getTime())
-  );
+  const handlePrevMonth = () => {
+    if (currentMonth === 0) {
+      setCurrentMonth(11);
+      setCurrentYear(currentYear - 1);
+    } else {
+      setCurrentMonth(currentMonth - 1);
+    }
+  };
 
-  console.log(eventDurationSet);
+  const handleNextMonth = () => {
+    if (currentMonth === 11) {
+      setCurrentMonth(0);
+      setCurrentYear(currentYear + 1);
+    } else {
+      setCurrentMonth(currentMonth + 1);
+    }
+  };
+
+  const renderPrevMonthDays = () => {
+    const daysInPrevMonth = getDaysInMonth(
+      new Date(currentYear, currentMonth - 1)
+    );
+    return Array.from({ length: startingDayIndex }).map((_, index) => {
+      const prevMonthDay = new Date(
+        currentYear,
+        currentMonth - 1,
+        daysInPrevMonth - index
+      );
+      const isEventDay = eventDurationSet.has(prevMonthDay.getTime());
+      return (
+        <div
+          key={`prev-${index}`}
+          className={clsx('p-2 text-center text-4xl', {
+            'font-bold text-black': isEventDay,
+            'text-white text-stroke': !isEventDay,
+          })}
+        >
+          {daysInPrevMonth - index}
+        </div>
+      );
+    });
+  };
 
   const renderNextMonthDays = () => {
     return Array.from({ length: 7 - endingDayIndex - 1 }).map((_, index) => {
-      const nextMonthDay = new Date(
-        eventInfo.end.year,
-        eventInfo.end.month - 1,
-        index + 1
-      );
+      const nextMonthDay = new Date(currentYear, currentMonth + 1, index + 1);
       const isEventDay = eventDurationSet.has(nextMonthDay.getTime());
-
       return (
         <div
-          key={`next-month-${index}`}
+          key={`next-${index}`}
           className={clsx('p-2 text-center text-4xl', {
             'font-bold text-black': isEventDay,
-            'text-stroke text-white': !isEventDay,
+            'text-white text-stroke': !isEventDay,
           })}
         >
           {index + 1}
@@ -102,33 +137,41 @@ const Calendar = () => {
   };
 
   return (
-    <div className="2xl:w-[1180px] w-full mx-auto p-2">
-      <div>
-        <h3 className="text-customRed mb-9 text-center text-4xl">
+    <div className="mx-auto w-full p-2 2xl:w-[1180px]">
+      <div className="mb-9 flex items-center justify-center gap-24">
+        <button
+          className="rounded-md border border-customRed p-2"
+          onClick={handlePrevMonth}
+        >
+          Prev
+        </button>
+        <h3 className="w-[300px] text-center text-4xl text-customRed">
           {properTitle}
         </h3>
+        <button
+          className="rounded-md border border-customRed p-2"
+          onClick={handleNextMonth}
+        >
+          Next
+        </button>
       </div>
       <div className="grid grid-cols-7 gap-6">
         {daysOfWeek.map((day) => (
           <div
-            className="text-customRed text-center text-2xl font-light"
+            className="text-center text-2xl font-light text-customRed"
             key={day}
           >
             {day}
           </div>
         ))}
-
-        {Array.from({ length: startingDayIndex }).map((_, index) => (
-          <div key={`empty-${index}`}></div>
-        ))}
-
+        {renderPrevMonthDays().reverse()}
         {daysInMonth.map((day, index) => {
           const isEventDay = eventDurationSet.has(day.getTime());
           return (
             <div
               className={clsx('p-2 text-center text-4xl', {
                 'font-bold text-black': isEventDay,
-                'text-stroke text-white': !isEventDay,
+                'text-white text-stroke': !isEventDay,
               })}
               key={index}
             >
@@ -136,8 +179,7 @@ const Calendar = () => {
             </div>
           );
         })}
-
-        {eventInfo.start.month !== eventInfo.end.month && renderNextMonthDays()}
+        {renderNextMonthDays()}
       </div>
     </div>
   );
