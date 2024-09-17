@@ -73,7 +73,7 @@ const BookingPage: React.FC = () => {
             stanza diventava un esterno aperto, ogni spazio esterno diventava
             una stanza chiusa.
           </p>
-          <div className="flex w-[240px] flex-col 2xl:gap-24 gap-9  p-0 pr-0 pt-6 lg:w-[324px] lg:p-6 xl:w-[324px] xl:p-6 2xl:w-[324px] 2xl:p-6">
+          <div className="flex w-[240px] flex-col gap-9 p-0 pr-0 pt-6 lg:w-[324px] lg:p-6 xl:w-[324px] xl:p-6 2xl:w-[324px] 2xl:gap-24 2xl:p-6">
             <Image src={dateXl} alt={'date-xl'} width={324} height={253} />
             <button className="border border-black p-4 text-lg shadow-md hover:shadow-none lg:text-2xl xl:text-2xl 2xl:text-2xl">
               <Link href={`/booking/${'nicogalmozzi'}`}>PRENOTA LA VISITA</Link>
